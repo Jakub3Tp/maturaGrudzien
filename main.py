@@ -20,12 +20,26 @@ def zad1(number: list[int]) -> (int, int):
 
     return number_of_squares, first
 
-def isFirst(number: int) -> bool:
+def is_first(number: int) -> bool:
     for i in range(2, number):
         if number % i == 0:
             return False
-        return True
+    return True
+
+def zad2(number: list[int]) -> list[int]:
+    number_of_5 = []
+    for number in numbers:
+        counter = 0
+        for i in range(2, number):
+            if number % i == 0:
+                if is_first(i):
+                    counter += 1
+                    if counter == 5:
+                        number_of_5.append(number)
+                        break
+    return number_of_5
 
 
 numbers = read("liczby.txt")
 print(zad1(numbers))
+print(zad2(numbers))
